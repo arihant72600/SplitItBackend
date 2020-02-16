@@ -12,6 +12,9 @@ from skimage.filters import threshold_local
 from flask import Flask
 from flask import request
 
+import random
+import string
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -23,10 +26,11 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         print(f)
-        g = f.save()
-        filename = transform_image(f)
+        randomFileName = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
+        g = f.save(randomFileName)
+        filename = transform_image(g)
         if filename is None:
-        	filename = binarize_image(f)
+        	filename = binarize_image(g)
 
         text = ocr_text(filename)
         item_to_price = text_parser(text)
