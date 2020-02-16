@@ -23,6 +23,7 @@ def upload_file():
     if request.method == 'POST':
         f = request.files
         print(f)
+	return 'got it'
 
 
 def order_points(pts):
