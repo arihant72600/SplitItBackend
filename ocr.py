@@ -87,6 +87,7 @@ def binarize_image(image):
 
 
 def transform_image(image):
+	print(image)
 	image = cv2.imread(image)
 	print(image)
 	ratio = image.shape[0] / 500.0
