@@ -136,14 +136,17 @@ def text_parser(text):
 	return item_to_price
 
 if __name__ == "__main__":
-    # construct the argument parse and parse the arguments
-	ap = argparse.ArgumentParser()
-	ap.add_argument("--image", "-i", required=True, help="path to input image to be OCR'd")
-	args = vars(ap.parse_args())
+    # # construct the argument parse and parse the arguments
+	# ap = argparse.ArgumentParser()
+	# ap.add_argument("--image", "-i", required=True, help="path to input image to be OCR'd")
+	# args = vars(ap.parse_args())
 
-	filename = transform_image(args["image"])
-	if filename is None:
-		filename = binarize_image(args["image"])
+	# filename = transform_image(args["image"])
+	# if filename is None:
+	# 	filename = binarize_image(args["image"])
 
-	text = ocr_text(filename)
-	item_to_price = text_parser(text)
+	# text = ocr_text(filename)
+	# item_to_price = text_parser(text)
+
+	app.run(host='0.0.0.0', port=5000)
+
