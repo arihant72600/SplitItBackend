@@ -27,8 +27,8 @@ def upload_file():
         f = request.files['file']
         print(f)
         randomFileName = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
-        g = f.save(randomFileName + '.jpeg')
-        filename = transform_image(g)
+        g = f.save(randomFileName)
+        filename = transform_image(randomFileName)
         if filename is None:
         	filename = binarize_image(g)
 
