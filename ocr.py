@@ -88,6 +88,7 @@ def binarize_image(image):
 
 def transform_image(image):
 	image = cv2.imread(image)
+	print(image)
 	ratio = image.shape[0] / 500.0
 	orig = image.copy()
 	image = imutils.resize(image, height = 500)
