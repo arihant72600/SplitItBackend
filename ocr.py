@@ -21,8 +21,15 @@ def hello_world():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        f = request.files
+        f = request.files['file']
         print(f)
+        filename = transform_image(f)
+        if filename is None:
+        	filename = binarize_image(f)
+
+        text = ocr_text(filename)
+        item_to_price = text_parser(text)
+        return item_to_price
 		
     return 'got it'
 
