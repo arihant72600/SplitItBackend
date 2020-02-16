@@ -23,6 +23,7 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         print(f)
+        g = f.save()
         filename = transform_image(f)
         if filename is None:
         	filename = binarize_image(f)
