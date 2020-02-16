@@ -9,6 +9,13 @@ from PIL import Image
 from nltk import edit_distance
 from skimage.filters import threshold_local
 
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
 
 def order_points(pts):
 	rect = np.zeros((4, 2), dtype = "float32")
